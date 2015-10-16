@@ -11,7 +11,7 @@
 		public $directions_sql;
 		public $ingredients_sql;
 
-
+//
 
 		function __construct($_id){
 			$this->id = $_id;
