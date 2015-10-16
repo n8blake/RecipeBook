@@ -1,0 +1,46 @@
+///
+recipes r 
+
+
+SELECT r.recipeName, r.tips, r.servings, u.userName, d.stepID, s.text, i.ingredientName, IXR.quantity, IXR.unit
+FROM 
+	recipes r
+	JOIN users u ON u.userID=r.author
+	JOIN directions d on d.recipeID=r.recipeID
+	JOIN ingredientsXrecipe IXR on IXR.recipeID=r.recipeID
+	JOIN ingredients i on i.ingredientID=IXR.ingredientID
+	JOIN steps s ON s.`stepID`=d.stepID
+
+SELECT r.recipeName, r.tips, r.servings, u.userName, t.label, s.orderNumber, s.text, i.ingredientName, IXR.quantity, IXR.unit
+FROM 
+	recipes r
+	JOIN users u ON u.userID=r.author
+	JOIN types t ON t.typeID=r.typeID
+	JOIN directions d on d.recipeID=r.recipeID
+	JOIN ingredientsXrecipe IXR on IXR.recipeID=r.recipeID
+	JOIN ingredients i on i.ingredientID=IXR.ingredientID
+	JOIN steps s ON s.`stepID`=d.stepID
+WHERE r.recipeID='1'
+
+//function (id)->
+
+SELECT r.recipeName, r.tips, r.servings, u.userName, t.label
+FROM 
+	recipes r
+	JOIN users u ON u.userID=r.author
+	JOIN types t ON t.typeID=r.typeID
+WHERE r.recipeID='1'
+
+SELECT s.orderNumber, s.text
+	FROM
+	recipes r
+	JOIN directions d on d.recipeID=r.recipeID
+	JOIN steps s ON s.`stepID`=d.stepID
+WHERE r.recipeID='1'
+
+SELECT i.ingredientName, IXR.quantity, IXR.unit
+FROM
+	recipes r
+	JOIN ingredientsXrecipe IXR on IXR.recipeID=r.recipeID
+	JOIN ingredients i on i.ingredientID=IXR.ingredientID
+WHERE r.recipeID='1'
