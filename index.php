@@ -5,6 +5,8 @@
 
 	session_start();
 
+	require_once('../db/db_settings.php');
+
 	include ('models/recipe.php');
 	include ('views/recipe.php');
 

@@ -57,9 +57,9 @@
 
 		function runStandardQuery($_sql){
 
-			$host = "localhost";
-			$pass = "root";
-			$user = "root";
+			$host = $GLOBALS['MySQL_SERVER'];
+			$pass = $GLOBALS['MySQL_SERVER_PASS'];
+			$user = $GLOBALS['MySQL_SERVER_USER'];
 			$db = "RecipesDB";
 
 			//SELECT recipes.*, users.name FROM recipes JOIN users ON users.userID=recipes.author 
