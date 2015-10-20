@@ -12,7 +12,11 @@
 
 			?>
 
-			<div>
+			<div class="container">
+
+				<div class="well">
+					Bootstrap loaded.
+				</div>
 
 				<pre>
 
