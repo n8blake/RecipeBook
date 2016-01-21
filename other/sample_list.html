@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>Test List</title>
+		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script type="text/javascript" src="list_app.js"></script>
+		<style type="text/css">
+			.table-striped{
+				width: 100%;
+				font-size: 20px;
+			}
+			button {
+				width: 100%;
+			}
+		</style>
+
+	</head>
+
+	<body data-ng-app="listApp">
+		<div class="container" ng-controller="listCtrl">
+			<h1>This is a test list.</h1>
+			<div>
+				Filter list by last name.
+			</div>
+			<div class="row">
+				<div class="col-md-2"><button class="btn btn-default" data-ng-click="updateNames('A_Names')">A - D</button></div>
+				<div class="col-md-2"><button class="btn btn-default" data-ng-click="updateNames('E_Names')">E - H</button></div>
+				<div class="col-md-2"><button class="btn btn-default">I - M</button></div>
+				<div class="col-md-2"><button class="btn btn-default">N - Q</button></div>
+				<div class="col-md-2"><button class="btn btn-default">R - U</button></div>
+				<div class="col-md-2"><button class="btn btn-default">V - Z</button></div>
+			</div>
+			
+			<table class="table-striped table-responsive" >
+				<thead>
+					<th>Present</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Rank</th>
+				</thead>
+				<tbody>
+				<tr ng-repeat="name in names">
+				  <td><input type="checkbox" value="" ng-model="name.present"></td>
+				  <td>{{name.first_name}}</td> 
+				  <td>{{name.last_name}}</td>
+				  <td>{{name.rank}}</td>
+				</tr>
+				
+				</tbody>
+			</table>
+		</div>
+	</body>
+
+</html>

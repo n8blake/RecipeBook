@@ -6,21 +6,10 @@
 	public $css = array();
 	public $js = array();
 
-	function __construct(){
-		$this->title = "Plate";
-	}
+		function __construct(){
+			$this->title = "Plate";
+		}
 
-	public function setTitle($_title){
-		$this->title = $_title;
-	}
-
-	public function setCSS($_css){
-		$this->css = $_css;
-	}
-
-	public function setJS($_js){
-		$this->js = $_js;
-	}
 
 	public function render(){
 
@@ -34,7 +23,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="/RecipeBook/includes/css/styles.css">
 		<?php 
 			foreach ($this->css as $cssFileName) {
 				echo '<link rel="stylesheet" type="text/css" href="'. CSS_PATH .'/'. $cssFileName .'">';
@@ -47,6 +37,24 @@
 		<title><?php echo $this->title; ?></title>
 	</head>
 <body>
+	<div class="container">
+		
+		<div class="row" id="header_container">
+			<div class="col-sm-12 col-md-9">
+				<div id="main_logo_container">
+					<img id="main_logo" src="/RecipeBook/includes/assests/plate-logo1b.png" class="center-block">
+				</div>
+			</div>
+			<div class="input-group col-md-3">
+				<span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+				<input class="form-control" type="text" placeholder="SEARCH"/>
+			</div>
+			
+			<div class="pull-right">
+				<span class="btn btn-default">LOGIN</span>
+			</div>
+		</div>
+	</div>
 
 <?php
 

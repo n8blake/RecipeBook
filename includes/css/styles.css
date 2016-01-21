@@ -1,0 +1,17 @@
+#main_logo{
+	width: 100px;
+	height: 100px;
+	
+}
+
+#main_logo_container{
+	margin: auto;
+}
+
+#header_container{
+	margin-top: 20px;
+}
+
+#content{
+	margin-top: 20px; 
+}

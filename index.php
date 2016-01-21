@@ -1,30 +1,37 @@
 <?php
 
+	//report errors for debugging...
 	error_reporting(E_ALL);
 	ini_set('display_errors', 'on');
 
-	session_start();
+	//include the custom functions library...
+	include('./other/custom_functions.php');
 
-	require_once('../db/db_settings.php');
+	//include the MySQL database connection settings...
+	include('../db/db_settings.php');
 
-	include ('models/recipe.php');
-	include ('views/recipe.php');
-	include ('views/header.php');
-	include ('views/footer.php');
+	//get the filepath and split on '/', then use the current directory name as APP_NAME
+	$file = dirname(__FILE__);
+	$dir = explode('/', $file);
+	
+	define('APP_NAME', $dir[count($dir) - 1]);
 
-	define('CSS_PATH', './includes/css/');
-	define('JS_PATH', './includes/js/');
+	//lazy load all models
+	$modelsDir = './models/';
+	$modelsArr = scandir($modelsDir);
 
-	$myRecipe = new Recipe(1);
+	foreach ($modelsArr as $model) {
+		if($model != '.' && $model != '..'){
+			include ('./models/'. $model);
+		}
+	}
 
-	$header = new Header();
-	$footer = new Footer();
+	$uri = parse_url($_SERVER['REQUEST_URI']);
 
-	$view = new Recipe_View($myRecipe);
+	include('uri_handler.php');
 
-	$header->render();
-	$view->render();
-	$footer->render();
+	handleURI($uri);
 
-
+	//print_r($uri);
+	
 ?>

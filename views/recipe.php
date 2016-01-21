@@ -2,33 +2,23 @@
 
 	class Recipe_View {
 
-		public $recipe;
+		public $recipeID;
 
-		function __construct($_recipe){
-			$this->recipe = $_recipe;
+		function __construct($_id){
+			$this->recipeID = $_id;
 		}
 
 		public function render(){
 
 			?>
+			<script>window.recipeIDinit = <?php echo $this->recipeID;?>;</script>
+			<div class="container" id="content">
 
-			<div class="container">
+				<div class="well"><?php echo $this->recipeID;?></div>
 
-				<div class="well">
-					Bootstrap loaded.
-				</div>
-
-				<pre>
-
-					<?php print_r($this->recipe) ?>
-
-				</pre>
 			</div>
 
 			<?php
-
 		}
-
 	}
-
 ?>
